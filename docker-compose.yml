@@ -1,0 +1,34 @@
+version: '3'
+services:
+  back:
+    build:
+      context: ./
+      dockerfile: dockerfile
+    ports:
+       - "3333:3333"
+    working_dir: /var/www
+    volumes:
+        - ./src:/var/www/src
+        - ./__test__:/var/www/__test__
+    networks:
+      - appedidos-network
+    depends_on:
+      - db
+
+  db:
+    image: "postgis/postgis"
+    ports: 
+      - "5432:5432"
+    volumes:
+       - ./.docker:/var/lib/postgrespers
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: asd
+      POSTGRES_DB: appedidos-db
+    networks:
+      - appedidos-network
+
+#Docker Networks
+networks:
+  appedidos-network:
+    driver: bridge
