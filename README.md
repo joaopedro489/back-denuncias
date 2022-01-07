@@ -13,7 +13,7 @@
 * Por fim, utilize o seguintes comando para servir o projeto, `npm run dev`.
 * E, assim será possível utilizar a aplicação.
 
-##Docker
+## Docker
 * Para executar o projeto com Docker, basta utilizar o comando `docker compose up`.
 * Após executar o comando, será instalado todas as dependencias do projeto e com as configurações de acordo.
 * Porém, ainda será necessário ainda configurar o `.env` para o projeto funcionar.
